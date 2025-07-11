@@ -3,8 +3,8 @@ using UnityEngine;
 public class FollowTheAim : MonoBehaviour
 {
     [SerializeField] private Transform _aim;
-
-    private float _offsetX = -5.5f;
+    [SerializeField] private float _offsetX = 5.5f;
+    [SerializeField] private float _offsetZ = -10;
 
     private void Update()
     {
@@ -16,8 +16,9 @@ public class FollowTheAim : MonoBehaviour
 
     private void NextPosition()
     {
-        Vector2 offset = _aim.position;
+        Vector3 offset = _aim.position;
         offset.x += _offsetX;
+        offset.z = _offsetZ;
         transform.position = offset;
     }
 }
