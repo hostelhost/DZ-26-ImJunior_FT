@@ -1,7 +1,7 @@
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 
-public class PlayerMover : MonoBehaviour
+public class PlayerMover : MonoBehaviour, IInteractable
 {
 
     [SerializeField] private float _jumpForce;
@@ -9,32 +9,39 @@ public class PlayerMover : MonoBehaviour
     [SerializeField] private float _maxRotationAroundAxisZ;
     [SerializeField] private float _minRotationAroundAxisZ;
     [SerializeField] private float _rotationSpeed;
+    [SerializeField] private InputReader _inputReader;
+    [SerializeField] private Rigidbody2D _rigidbody2D;
 
-    private Rigidbody2D _rigidbody2D;
     private Quaternion _maxRotation;
     private Quaternion _minRotation;
 
     private void Start()
     {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
         _maxRotation = Quaternion.Euler(0, 0, _maxRotationAroundAxisZ);
         _minRotation = Quaternion.Euler(0, 0, _minRotationAroundAxisZ);
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
-            _rigidbody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
-            transform.rotation = _maxRotation;
-        }
+        _inputReader.SpaceKeyHasPressed += Jump;
+    }
 
-        transform.rotation = Quaternion.Lerp(transform.rotation, _minRotation, _rotationSpeed * Time.deltaTime);
+    private void OnDisable()
+    {
+        _inputReader.SpaceKeyHasPressed -= Jump;
+    }
+
+    private void Jump()
+    {
+        _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
+        _rigidbody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+        transform.rotation = _maxRotation;
     }
 
     private void FixedUpdate()
     {
         _rigidbody2D.velocity = new Vector2(_moveSpeed, _rigidbody2D.velocity.y);
+
+        transform.rotation = Quaternion.Lerp(transform.rotation, _minRotation, _rotationSpeed * Time.deltaTime);
     }
 }
