@@ -16388,6 +16388,18 @@ PrefabInstance:
       propertyPath: _boxCollider2D
       value: 
       objectReference: {fileID: 3825961991669807031}
+    - target: {fileID: 5765889532675918980, guid: 149975cd2b4eaa24795d9a3068504731, type: 3}
+      propertyPath: _prefab
+      value: 
+      objectReference: {fileID: 34866970709847005, guid: e17f92d6d78287442aa6c8e8847de166, type: 3}
+    - target: {fileID: 5765889532675918980, guid: 149975cd2b4eaa24795d9a3068504731, type: 3}
+      propertyPath: _pointOfShot.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5765889532675918980, guid: 149975cd2b4eaa24795d9a3068504731, type: 3}
+      propertyPath: _pointOfShot.y
+      value: -0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7612207979716390441, guid: 149975cd2b4eaa24795d9a3068504731, type: 3}
       propertyPath: m_LocalPosition.x
       value: -31.71
@@ -16441,7 +16453,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3825961991669807030}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3946201938054276727, guid: 149975cd2b4eaa24795d9a3068504731, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 149975cd2b4eaa24795d9a3068504731, type: 3}

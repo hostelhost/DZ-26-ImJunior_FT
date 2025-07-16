@@ -4,8 +4,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private CollisionHandler _collisionHandler;
-    [SerializeField] private PlayerMover _playerMover;
-    [SerializeField] private InputReader _inputReader;
+    //[SerializeField] private PlayerMover _playerMover;
+    //[SerializeField] private InputReader _inputReader;
     //[SerializeField] private ; 
     //[SerializeField] private ;
 
@@ -23,7 +23,11 @@ public class Player : MonoBehaviour
 
     private void HandleСollision(IInteractable interactable)
     {
-        if (interactable is Bullet bullet)
+        if (interactable is BulletPlayer BulletPlayer)
+        {
+            return;
+        }
+        else if (interactable is Bullet bullet)
         {
             Debug.Log("Я столкнулся с Bullet");
             //Нанести получить урон от пули. 

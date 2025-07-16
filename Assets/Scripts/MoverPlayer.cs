@@ -1,7 +1,7 @@
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 
-public class PlayerMover : MonoBehaviour, IInteractable
+public class MoverPlayer : MonoBehaviour, IInteractable
 {
 
     [SerializeField] private float _jumpForce;

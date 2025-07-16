@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7612207979716390441}
   - component: {fileID: 5305601413370967015}
   - component: {fileID: 9073136056180587097}
+  - component: {fileID: 5765889532675918980}
   - component: {fileID: 1504951513527296734}
   - component: {fileID: 1871617355743809433}
   - component: {fileID: 5861925259316952904}
@@ -35,7 +36,8 @@ Transform:
   m_LocalPosition: {x: -5.66, y: 0.047846887, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 3958942271198993713}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5305601413370967015
@@ -102,9 +104,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91e0c1ea911c61b4f81bfb42e43fbe38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collisionHandler: {fileID: 0}
-  _playerMover: {fileID: 0}
-  _inputReader: {fileID: 0}
+  _collisionHandler: {fileID: 3374246549965317114}
+--- !u!114 &5765889532675918980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565818162390978619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c401a63d8123654d8a10b7383278cb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputReader: {fileID: 7986083127983153358}
+  _prefab: {fileID: 0}
+  _pointOfShot: {fileID: 0}
+  _player: {fileID: 7612207979716390441}
 --- !u!50 &1504951513527296734
 Rigidbody2D:
   serializedVersion: 4
@@ -219,5 +235,49 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7f2e9b4b8abff44eaa0bce1ffa590eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &3946201938054276727
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3958942271198993713}
+  - component: {fileID: 3245013694358193690}
+  m_Layer: 0
+  m_Name: PointOfShot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3958942271198993713
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3946201938054276727}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.27, y: -0.85, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 7612207979716390441}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3245013694358193690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3946201938054276727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd2e7a67b4d9a9041aeaf79e9fd90d0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
