@@ -23,6 +23,7 @@ public class AttackerPlayer : MonoBehaviour
     private void Attack()
     {
         BulletPlayer bullet = _pool.Get();
-        bullet.transform.position = _player.position + _pointOfShot;     
+        bullet.transform.position = _player.position + _pointOfShot;
+        bullet.GetQuaternion(_player.rotation);
     }
 }

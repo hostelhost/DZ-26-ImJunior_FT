@@ -9,4 +9,9 @@ public class Enemy : MonoBehaviour, IInteractable, IExistInPool
     {
         _onDead = onDead;
     }
+
+    public void Handle—ollision(IInteractable interactable) 
+    { 
+
+    }
 }

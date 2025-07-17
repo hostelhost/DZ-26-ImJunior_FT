@@ -1,11 +1,11 @@
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 
-public class MoverPlayer : MonoBehaviour, IInteractable
+public class MoverPlayer : MonoBehaviour
 {
 
     [SerializeField] private float _jumpForce;
-    [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _speed;
     [SerializeField] private float _maxRotationAroundAxisZ;
     [SerializeField] private float _minRotationAroundAxisZ;
     [SerializeField] private float _rotationSpeed;
@@ -40,7 +40,7 @@ public class MoverPlayer : MonoBehaviour, IInteractable
 
     private void FixedUpdate()
     {
-        _rigidbody2D.velocity = new Vector2(_moveSpeed, _rigidbody2D.velocity.y);
+        _rigidbody2D.velocity = new Vector2(_speed, _rigidbody2D.velocity.y);
 
         transform.rotation = Quaternion.Lerp(transform.rotation, _minRotation, _rotationSpeed * Time.deltaTime);
     }

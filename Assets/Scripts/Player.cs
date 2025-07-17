@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IInteractable
 {
     [SerializeField] private CollisionHandler _collisionHandler;
     //[SerializeField] private PlayerMover _playerMover;
@@ -9,21 +9,18 @@ public class Player : MonoBehaviour
     //[SerializeField] private ; 
     //[SerializeField] private ;
 
-    public event Action GameOver;
+    public event Action OnDead;
 
-    private void OnEnable()
-    {
-        _collisionHandler.CollisionDetected += HandleСollision;
-    }
+    private void OnEnable() =>
+            _collisionHandler.CollisionDetected += HandleСollision;
 
-    private void OnDisable()
-    {
+    private void OnDisable() =>
         _collisionHandler.CollisionDetected -= HandleСollision;
-    }
 
-    private void HandleСollision(IInteractable interactable)
+
+    public void HandleСollision(IInteractable interactable)
     {
-        if (interactable is BulletPlayer BulletPlayer)
+        if (interactable is BulletPlayer bulletPlayer)
         {
             return;
         }
@@ -31,19 +28,19 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Я столкнулся с Bullet");
             //Нанести получить урон от пули. 
-            GameOver?.Invoke();
+            OnDead?.Invoke();
         }
         else if (interactable is Thorns thorns)
         {
             Debug.Log("Я столкнулся с Thorns");
             //Нанести урон от шипов
-            GameOver?.Invoke();
+            OnDead?.Invoke();
         }
         else if (interactable is Enemy enemy)
         {
             Debug.Log("Я столкнулся с Enemy");
             //Нанести урон от столкновения с enemy
-            GameOver?.Invoke();
+            OnDead?.Invoke();
         }
     }
 }
