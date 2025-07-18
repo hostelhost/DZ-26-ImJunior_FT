@@ -148,6 +148,7 @@ MonoBehaviour:
   _rigidbody2D: {fileID: -8499323635245869007}
   _collisionHandler: {fileID: 6645793243165419029}
   _speed: 3
+  _isRight: 1
 --- !u!114 &6645793243165419029
 MonoBehaviour:
   m_ObjectHideFlags: 0

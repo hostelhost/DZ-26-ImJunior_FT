@@ -16380,7 +16380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1871617355743809433, guid: 149975cd2b4eaa24795d9a3068504731, type: 3}
       propertyPath: _speed
-      value: 0.01
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1871617355743809433, guid: 149975cd2b4eaa24795d9a3068504731, type: 3}
       propertyPath: _inputReader

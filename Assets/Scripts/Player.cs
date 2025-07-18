@@ -4,10 +4,6 @@ using UnityEngine;
 public class Player : MonoBehaviour, IInteractable
 {
     [SerializeField] private CollisionHandler _collisionHandler;
-    //[SerializeField] private PlayerMover _playerMover;
-    //[SerializeField] private InputReader _inputReader;
-    //[SerializeField] private ; 
-    //[SerializeField] private ;
 
     public event Action OnDead;
 
