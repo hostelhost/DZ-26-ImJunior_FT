@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour, IInteractable, IExistInPool
     [SerializeField] private CollisionHandler _collisionHandler;
     [SerializeField] private float _speed = 3f;
     [SerializeField] private bool _isRight;
+
     private int _swapValue = -1;
 
     protected Action _onDead;
