@@ -1,13 +1,8 @@
 using UnityEngine;
 
-public class AttackerPlayer : MonoBehaviour
+public class AttackerPlayer : Attacker<BulletPlayer>
 {
     [SerializeField] private InputReader _inputReader;
-    [SerializeField] private BulletPlayer _prefab;
-    [SerializeField] private Vector3 _pointOfShot;
-    [SerializeField] private Transform _player;
-
-    private Pool<BulletPlayer> _pool = new();
 
     private void OnEnable() =>
         _inputReader.Mouse0KeyHasPressed += Attack;
@@ -15,15 +10,10 @@ public class AttackerPlayer : MonoBehaviour
     private void OnDisable() =>
         _inputReader.Mouse0KeyHasPressed -= Attack;
 
-    private void Start()
-    {
-        _pool.CreatePool(_prefab);
-    }
-
-    private void Attack()
+    protected override void Attack()
     {
         BulletPlayer bullet = _pool.Get();
-        bullet.transform.position = _player.position + _pointOfShot;
-        bullet.GetQuaternion(_player.rotation);
+        bullet.transform.position = _thisTransform.position + _pointOfShot;
+        bullet.GetQuaternion(_thisTransform.rotation);
     }
 }

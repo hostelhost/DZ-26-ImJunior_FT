@@ -1,7 +1,7 @@
 using UnityEngine;
 [RequireComponent(typeof(Transform))]
 
-abstract class Attacker<T> : MonoBehaviour where T : MonoBehaviour, IExistInPool
+public abstract class Attacker<T> : MonoBehaviour where T : MonoBehaviour, IExistInPool
 {
     [SerializeField] private T _bulletPrefab;
     [SerializeField] protected Vector3 _pointOfShot;

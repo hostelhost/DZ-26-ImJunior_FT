@@ -16399,6 +16399,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 34866970709847005, guid: e17f92d6d78287442aa6c8e8847de166, type: 3}
     - target: {fileID: 5765889532675918980, guid: 149975cd2b4eaa24795d9a3068504731, type: 3}
+      propertyPath: _bulletPrefab
+      value: 
+      objectReference: {fileID: 34866970709847005, guid: e17f92d6d78287442aa6c8e8847de166, type: 3}
+    - target: {fileID: 5765889532675918980, guid: 149975cd2b4eaa24795d9a3068504731, type: 3}
       propertyPath: _pointOfShot.x
       value: 0.2
       objectReference: {fileID: 0}
