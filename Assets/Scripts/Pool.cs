@@ -31,8 +31,8 @@ public class Pool<T> where T : MonoBehaviour, IExistInPool
 
     private T CreateNew()
     {
-        T instance = UnityEngine.Object.Instantiate(_prefab);
-        instance.Initialize(() => Release(instance));
-        return instance;
+        T item = UnityEngine.Object.Instantiate(_prefab);
+        item.Initialize(() => Release(item));
+        return item;
     }
 }

@@ -5,8 +5,8 @@ public class Enemy : MonoBehaviour, IInteractable, IExistInPool
 {
     [SerializeField] private CollisionHandler _collisionHandler;
     [SerializeField] private Transform _player;
-
-    private float _offsetOnDead = -15;
+    
+    private float _offsetOnDead = 15;
 
     private void OnEnable() =>
         _collisionHandler.CollisionDetected += HandleСollision;
@@ -36,12 +36,24 @@ public class Enemy : MonoBehaviour, IInteractable, IExistInPool
             _onDead?.Invoke();
     }
 
+    private bool test = true;
+
     private void DespawnBehindPlayer()
     {
-        if (_player.position.x > transform.position.x + _offsetOnDead)
+        if (test)
         {
-            Debug.Log("Я Enemy я умер из за позиции");
-            _onDead?.Invoke();
+            if (transform.position.x < _player.position.x + _offsetOnDead)
+            {
+                Debug.Log($"Я {name} я умер из за позиции");
+                //_onDead?.Invoke();
+            }
+            test = false;
         }
+
+        //if (_player.position.x > transform.position.x + _offsetOnDead)
+        //{
+        //    Debug.Log($"Я {name} я умер из за позиции");
+        //    _onDead?.Invoke();
+        //}
     }
 }

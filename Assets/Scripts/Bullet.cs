@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour, IInteractable, IExistInPool
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private CollisionHandler _collisionHandler;
     [SerializeField] private float _speed = 3f;
-    [SerializeField] private bool _isRight; //передавать этот параметр от атттакера, это не ответственность пули.
+    [SerializeField] private bool _isRight;
 
     private int _swapValue = -1;
 

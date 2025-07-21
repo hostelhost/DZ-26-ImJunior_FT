@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class AttackerEnemy : Attacker<Bullet>
@@ -14,6 +15,6 @@ public class AttackerEnemy : Attacker<Bullet>
             _timer = 0;
         }
 
-        _timer += Time.deltaTime;
+        _timer += Time.deltaTime;      
     }
 }

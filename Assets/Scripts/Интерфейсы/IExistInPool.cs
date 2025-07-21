@@ -2,5 +2,5 @@ using System;
 
 public interface IExistInPool
 {
-    void Initialize(Action onDead);
+   public void Initialize(Action onDead);
 }
