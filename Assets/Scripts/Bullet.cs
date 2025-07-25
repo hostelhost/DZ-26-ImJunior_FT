@@ -9,15 +9,18 @@ public class Bullet : MonoBehaviour, IInteractable, IExistInPool
     [SerializeField] private CollisionHandler _collisionHandler;
     [SerializeField] private float _speed = 3f;
     [SerializeField] private bool _isRight;
-    [SerializeField] private float _lifeTime = 20f;
+    [SerializeField] private float _lifeTime = 10f;
 
     private int _swapValue = -1;
     private WaitForSeconds _waitForSecondsLifeTime;
 
     protected Action _onDead;
 
-    private void OnEnable() =>
+    private void OnEnable()
+    {
         _collisionHandler.CollisionDetected += Handle—ollision;
+        StartCoroutine(DieOnTime());
+    }
 
     private void OnDisable() =>
         _collisionHandler.CollisionDetected -= Handle—ollision;
@@ -26,7 +29,6 @@ public class Bullet : MonoBehaviour, IInteractable, IExistInPool
     {
         _rigidbody2D.gravityScale = 0;
         _waitForSecondsLifeTime = new WaitForSeconds(_lifeTime);
-        StartCoroutine(DieOnTime());
     }
 
     private void Update()

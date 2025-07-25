@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class BulletPlayer : Bullet
 {
-    //Ќаписать анимацию столкновени€ с шипами
-
     public event Action ThornsCollision;
 
     public void GetQuaternion(Quaternion quaternion) =>
