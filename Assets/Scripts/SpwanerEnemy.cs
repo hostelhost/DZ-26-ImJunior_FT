@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SpwanerEnemy : MonoBehaviour
@@ -33,6 +34,7 @@ public class SpwanerEnemy : MonoBehaviour
     {
         Enemy enemy = _pool.Get();
         enemy.transform.position = GetNewPosition();
+        enemy.GetTransformForDespawn(_player);
     }
 
     private Vector3 GetNewPosition() =>

@@ -4,9 +4,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour, IInteractable, IExistInPool
 {
     [SerializeField] private CollisionHandler _collisionHandler;
-    [SerializeField] private Transform _player;
     
-    private float _offsetOnDead = 15;
+    private Transform _player;
+    private float _offsetOnDead = 10;
 
     private void OnEnable() =>
         _collisionHandler.CollisionDetected += HandleÑollision;
@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour, IInteractable, IExistInPool
         _onDead = onDead;
     }
 
-    public void HandleÑollision(IInteractable interactable) 
+    public void HandleÑollision(IInteractable interactable)
     {
         if (interactable is Bullet bullet)
             return;
@@ -36,24 +36,12 @@ public class Enemy : MonoBehaviour, IInteractable, IExistInPool
             _onDead?.Invoke();
     }
 
-    private bool test = true;
-
+    public void GetTransformForDespawn(Transform transform) =>   
+        _player = transform;
+    
     private void DespawnBehindPlayer()
     {
-        if (test)
-        {
-            if (transform.position.x < _player.position.x + _offsetOnDead)
-            {
-                Debug.Log($"ß {name} ÿ óìåð èç çà ïîçèöèè");
-                //_onDead?.Invoke();
-            }
-            test = false;
-        }
-
-        //if (_player.position.x > transform.position.x + _offsetOnDead)
-        //{
-        //    Debug.Log($"ß {name} ÿ óìåð èç çà ïîçèöèè");
-        //    _onDead?.Invoke();
-        //}
+        if (_player.position.x > transform.position.x + _offsetOnDead)
+            _onDead?.Invoke();
     }
 }

@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collisionHandler: {fileID: 5936137479022529655}
-  _player: {fileID: 7612207979716390441, guid: 149975cd2b4eaa24795d9a3068504731, type: 3}
+  _player: {fileID: 0}
 --- !u!61 &2998684285167120207
 BoxCollider2D:
   m_ObjectHideFlags: 0

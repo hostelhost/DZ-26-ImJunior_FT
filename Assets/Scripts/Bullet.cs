@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour, IInteractable, IExistInPool
@@ -7,8 +9,10 @@ public class Bullet : MonoBehaviour, IInteractable, IExistInPool
     [SerializeField] private CollisionHandler _collisionHandler;
     [SerializeField] private float _speed = 3f;
     [SerializeField] private bool _isRight;
+    [SerializeField] private float _lifeTime = 20f;
 
     private int _swapValue = -1;
+    private WaitForSeconds _waitForSecondsLifeTime;
 
     protected Action _onDead;
 
@@ -18,17 +22,19 @@ public class Bullet : MonoBehaviour, IInteractable, IExistInPool
     private void OnDisable() =>
         _collisionHandler.CollisionDetected -= HandleÑollision;
 
+    private void Start()
+    {
+        _rigidbody2D.gravityScale = 0;
+        _waitForSecondsLifeTime = new WaitForSeconds(_lifeTime);
+        StartCoroutine(DieOnTime());
+    }
+
     private void Update()
     {
         if (_isRight)
             _rigidbody2D.velocity = transform.right * _speed;
         else
             _rigidbody2D.velocity = (transform.right * _swapValue) * _speed;
-    }
-
-    private void Start()
-    {
-        _rigidbody2D.gravityScale = 0;
     }
 
     public void Initialize(Action onDead) =>
@@ -52,5 +58,11 @@ public class Bullet : MonoBehaviour, IInteractable, IExistInPool
         {
             _onDead?.Invoke();
         }
+    }
+
+    private IEnumerator DieOnTime()
+    {
+        yield return _waitForSecondsLifeTime;
+        _onDead?.Invoke();
     }
 }
