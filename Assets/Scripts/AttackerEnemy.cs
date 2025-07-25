@@ -1,13 +1,13 @@
 using System.Collections;
 using UnityEngine;
 
-public class AttackerEnemy : Attacker<Bullet>
+public class AttackerEnemy : Attacker<BulletEnemy>
 {
     [SerializeField] private float _attackPauseTime;
 
     private float _timer = 0;
 
-    private void Update() //не проверено
+    private void Update()
     {
         if (_timer >= _attackPauseTime)
         {

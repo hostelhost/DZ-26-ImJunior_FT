@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour, IInteractable, IExistInPool
 
     public void Handle—ollision(IInteractable interactable)
     {
-        if (interactable is Bullet bullet)
+        if (interactable is BulletEnemy bulletEnemy)
             return;
         else if (interactable is BulletPlayer bulletPlayer)
             _onDead?.Invoke();

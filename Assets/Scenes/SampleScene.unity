@@ -6356,7 +6356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prifab: {fileID: 1874233591318189903, guid: 593c6335692f4ab479f5ceb452e3032d, type: 3}
   _player: {fileID: 3825961991669807026}
-  _offsetPositionX: 5
+  _offsetPositionX: 10
   _offsetPositionMinimumY: -4
   _offsetPositionMaximumY: 4
   _spawnTime: 0.5

@@ -101,7 +101,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collisionHandler: {fileID: 5936137479022529655}
-  _player: {fileID: 0}
 --- !u!61 &2998684285167120207
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -172,6 +171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3452fcbb00592b46993fff6f8310300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 7324227568631098303, guid: 09c1f0da2d9857a48a7ea84954ce9672, type: 3}
+  _bulletPrefab: {fileID: 4052198279855713848, guid: 09c1f0da2d9857a48a7ea84954ce9672, type: 3}
   _pointOfShot: {x: -0.2, y: 0, z: 0}
   _attackPauseTime: 1

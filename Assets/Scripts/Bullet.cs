@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour, IInteractable, IExistInPool
+public abstract class Bullet : MonoBehaviour, IInteractable, IExistInPool
 {
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private CollisionHandler _collisionHandler;

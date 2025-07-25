@@ -8,7 +8,7 @@ public class Player : MonoBehaviour, IInteractable
     public event Action OnDead;
 
     private void OnEnable() =>
-            _collisionHandler.CollisionDetected += HandleСollision;
+        _collisionHandler.CollisionDetected += HandleСollision;
 
     private void OnDisable() =>
         _collisionHandler.CollisionDetected -= HandleСollision;
@@ -20,22 +20,19 @@ public class Player : MonoBehaviour, IInteractable
         {
             return;
         }
-        else if (interactable is Bullet bullet)
+        else if (interactable is BulletEnemy bulletEnemy)
         {
-            Debug.Log("Я столкнулся с Bullet");
-            //Нанести получить урон от пули. 
+            Debug.Log($"Я {name} столкнулся с Bullet");
             OnDead?.Invoke();
         }
         else if (interactable is Thorns thorns)
         {
-            Debug.Log("Я столкнулся с Thorns");
-            //Нанести урон от шипов
+            Debug.Log($"Я {name} столкнулся с Thorns");
             OnDead?.Invoke();
         }
         else if (interactable is Enemy enemy)
         {
-            Debug.Log("Я столкнулся с Enemy");
-            //Нанести урон от столкновения с enemy
+            Debug.Log($"Я {name} столкнулся с Enemy");
             OnDead?.Invoke();
         }
     }

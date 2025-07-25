@@ -14,7 +14,7 @@ public class BulletPlayer : Bullet
         {
             return;
         }
-        else if (interactable is Bullet bullet)
+        else if (interactable is BulletEnemy bulletEnemy)
         {
             _onDead?.Invoke();
         }
